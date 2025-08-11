@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PluginDialogBase</class>
+ <widget class="QDialog" name="PluginDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>848</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Topodata Downloader</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_main">
+   <item>
+    <widget class="QLabel" name="label_input">
+     <property name="text">
+      <string>Selecione a camada de polígono ou arquivo:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_layerInput">
+     <item>
+      <widget class="QgsMapLayerComboBox" name="mMapLayerComboBox">
+       <property name="showCrs">
+        <bool>true</bool>
+       </property>
+       <property name="filterExpression" stdset="0">
+        <string>type=polygon</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_selectFile">
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_options">
+     <property name="title">
+      <string>Arquivos para Download</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_options">
+      <item>
+       <widget class="QCheckBox" name="checkBox_ZN">
+        <property name="text">
+         <string>Altitude (ZN)</string>
+        </property>
+        <property name="suffix" stdset="0">
+         <string>ZN</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_SN">
+        <property name="text">
+         <string>Declividade (SN)</string>
+        </property>
+        <property name="suffix" stdset="0">
+         <string>SN</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_ON">
+        <property name="text">
+         <string>Orientação (ON)</string>
+        </property>
+        <property name="suffix" stdset="0">
+         <string>ON</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_RS">
+        <property name="text">
+         <string>Relevo (RS)</string>
+        </property>
+        <property name="suffix" stdset="0">
+         <string>RS</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_FT">
+        <property name="text">
+         <string>Forma Terreno (FT)</string>
+        </property>
+        <property name="suffix" stdset="0">
+         <string>FT</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_DD">
+        <property name="text">
+         <string>Divisores (DD)</string>
+        </property>
+        <property name="suffix" stdset="0">
+         <string>DD</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_VN">
+        <property name="text">
+         <string>Curvatura Vertical (VN)</string>
+        </property>
+        <property name="suffix" stdset="0">
+         <string>VN</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_HN">
+        <property name="text">
+         <string>Curvatura Horizontal (HN)</string>
+        </property>
+        <property name="suffix" stdset="0">
+         <string>HN</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_output">
+     <property name="text">
+      <string>Pasta de Destino:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QgsFileWidget" name="mFileWidget">
+     <property name="storageMode">
+      <enum>QgsFileWidget::GetDirectory</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_log">
+     <property name="text">
+      <string>Log de Processamento:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="textEdit_log"/>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_buttons">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_close">
+       <property name="text">
+        <string>Fechar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_start">
+       <property name="text">
+        <string>Executar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsFileWidget</class>
+   <extends>QWidget</extends>
+   <header>qgsfilewidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsMapLayerComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsmaplayercombobox.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
